@@ -4,8 +4,8 @@ function sliced_image = slicing(i)
 
 
     j = double(i);
-    u = 5; % upper threashold  
-    l = 1;  % lower threashold
+    u = 10; % upper threashold  
+    l = 0;  % lower threashold
 
     % get the height and width of the image
     [row,col,byt] = size(j); 
@@ -15,12 +15,12 @@ function sliced_image = slicing(i)
             if((j(x,y)>l) && (j(x,y)<u))
                 j(x,y) = 0; 
             else 
-                j(x,y) = 10; 
+                j(x,y) = i(x,y); 
             end
         end
     end
 
     % DEBUG
     %figure; imshow(i);  % show original image 
-    %figure; imshow(j);  % show sliced image
+    figure; imshow(j);  % show sliced image
     sliced_image = j; 
