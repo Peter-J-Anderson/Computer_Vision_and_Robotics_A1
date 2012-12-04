@@ -3,7 +3,7 @@ function sliced_image = slicing(i)
 % this function will remove the background between two values
 
     j = double(i);
-    u = 10; % upper threashold  
+    u = 20; % upper threashold  
     l = 0;  % lower threashold
 
     % get the height and width of the image
@@ -14,12 +14,14 @@ function sliced_image = slicing(i)
             if((j(x,y)>l) && (j(x,y)<u))
                 j(x,y) = 0; 
             else 
-                j(x,y) = 255; 
+                % the 'background' black
+                j(x,y) = i(x,y); 
             end
         end
     end
 
     % DEBUG
-    %figure; imshow(i);  % show original image 
-    %figure; imshow(j);  % show sliced image
-    sliced_image = im2bw(j); 
+    sliced_image = j; 
+    % figure; imshow(i);  % show original image 
+    % figure; imshow(j);  % show sliced image
+    
