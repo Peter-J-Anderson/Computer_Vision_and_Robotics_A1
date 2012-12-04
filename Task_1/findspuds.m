@@ -34,7 +34,6 @@ open_image = imopen(fill_image, se);
 % step 4
 % label potatoes
 [L, num] = bwlabel(open_image, 8);
-disp(num);
 outline_image = label2rgb(L, 'winter', 'k', 'shuffle');
 outline_image = imdilate(outline_image,se) - outline_image;
 
@@ -52,3 +51,27 @@ finalImg = cat(3, i(:,:,1), i(:,:,2), blue(:,:,3));
 finalImg = finalImg - i;
 finalImg = i + finalImg;
 figure; imshow(finalImg);
+
+
+%----------------------------------------------------------------------
+% lets now get the detail we want. 
+% number of potatoes 
+disp('Number of potatoes');
+disp(num);
+
+% now we need details for each potato
+
+s = regionprops(L,'All');
+ss = regionprops(L,'All');
+disp(' Potato Centroid');
+disp('Potato Number  X         Y  Num         Pixels');
+
+hold on
+for j = 1:1:numel(s), 
+x_coordinate = s(j).Centroid(1);
+y_coordinate = s(j).Centroid(2);
+pixelValue = s(j).PixelValues;
+str = ['       ',num2str(j),'        ', num2str(x_coordinate), '   ', num2str(y_coordinate), '   '];
+disp(str);
+end
+hold off
