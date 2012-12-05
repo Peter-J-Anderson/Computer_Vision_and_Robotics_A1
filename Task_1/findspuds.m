@@ -61,10 +61,9 @@ disp('Number of potatoes');
 disp(num);
 
 % now we need details for each potato
-
 s = regionprops(L,'All');
-disp('                   Potato Centroid                                                                                 Mean            Standard Deviation');
-disp('Potato Number      X          Y        Num of Pixels    MajorAxisLength   MinorAxisLength      circularity      R    G   B              R   G   B');
+disp('                   Potato Centroid                                                                               Mean                  Standard Deviation');
+disp('Potato Number      X          Y        Num of Pixels    MajorAxisLength   MinorAxisLength  circularity      R      G      B            R       G       B');
 hold on
 for j = 1:1:numel(s), 
 x_coordinate = s(j).Centroid(1);
@@ -73,7 +72,8 @@ pixelValue = s(j).Area;
 majorAxis = s(j).MajorAxisLength;
 minorAxis = s(j).MinorAxisLength;
 circularity = (4*pi*pixelValue)/(s(j).Perimeter^2);
-str = ['       ',num2str(j),'        ', num2str(x_coordinate), '   ', num2str(y_coordinate), '         ',num2str(pixelValue), '           ', num2str(majorAxis), '           ', num2str(minorAxis), '             ', num2str(circularity)];
-disp(str);
+[R,G,B, stdR,stdG,stdB] = findMean(s(j),i);
+str = ['\t',num2str(j),'\t\t\t', num2str(x_coordinate,'%07.3f'), '\t\t', num2str(y_coordinate,'%07.3f'), '\t\t',num2str(pixelValue,'%09.3f'), '\t\t\t', num2str(majorAxis,'%07.3f'), '\t\t\t', num2str(minorAxis,'%07.3f'), ' \t\t ', num2str(circularity,'%05.3f'), '\t\t', num2str(R,'%07.3f'), '\t', num2str(G,'%07.3f'), '\t', num2str(B,'%07.3f'),'\t\t', num2str(stdR,'%07.3f'),'\t',num2str(stdG,'%07.3f'), '\t', num2str(stdB,'%07.3f'), '\n'];
+fprintf(str);
 end
 hold off
