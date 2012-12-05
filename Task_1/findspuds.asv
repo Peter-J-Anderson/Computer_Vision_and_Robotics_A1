@@ -63,8 +63,8 @@ disp(num);
 % now we need details for each potato
 
 s = regionprops(L,'All');
-disp('                   Potato Centroid                                                                                 Mean            Standard Deviation');
-disp('Potato Number      X          Y        Num of Pixels    MajorAxisLength   MinorAxisLength      circularity      R    G   B              R   G   B');
+disp(' Potato Centroid');
+disp('Potato Number      X          Y        Num of Pixels    MajorAxisLength   MinorAxisLength');
 hold on
 for j = 1:1:numel(s), 
 x_coordinate = s(j).Centroid(1);
@@ -72,8 +72,8 @@ y_coordinate = s(j).Centroid(2);
 pixelValue = s(j).Area;
 majorAxis = s(j).MajorAxisLength;
 minorAxis = s(j).MinorAxisLength;
-circularity = (4*pi*pixelValue)/(s(j).Perimeter^2);
-str = ['       ',num2str(j),'        ', num2str(x_coordinate), '   ', num2str(y_coordinate), '         ',num2str(pixelValue), '           ', num2str(majorAxis), '           ', num2str(minorAxis), '             ', num2str(circularity)];
+circularity = ((4*pi)*pixelValue)/s(j).
+str = ['       ',num2str(j),'        ', num2str(x_coordinate), '   ', num2str(y_coordinate), '         ',num2str(pixelValue), '           ', num2str(majorAxis), '         ', num2str(minorAxis)];
 disp(str);
 end
 hold off
