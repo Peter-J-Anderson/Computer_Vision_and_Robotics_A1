@@ -11,7 +11,7 @@ myImagebw = imerode(myImagebw,SE); myImagebw = imerode(myImagebw,SE);
 
 image_fill = imfill(myImagebw, 'holes');
 
-
+figure; imshow(image_fill);
 % DEBUG
 image_fill = im2uint8(image_fill);
 image_fill = cat(3,image_fill,image_fill,image_fill);

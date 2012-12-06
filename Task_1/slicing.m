@@ -12,16 +12,16 @@ function sliced_image = slicing(i)
     for x=1:1:row       % go through the entire row one at a time 
         for y=1:1:col   % go through each column
             if((j(x,y)>l) && (j(x,y)<u))
+                 % the 'background' black
                 j(x,y) = 0; 
             else 
-                % the 'background' black
                 j(x,y) = i(x,y); 
             end
         end
     end
 
     % DEBUG
-    sliced_image = j; 
+
     % figure; imshow(i);  % show original image 
     % figure; imshow(j);  % show sliced image
-    
+    sliced_image = j;     

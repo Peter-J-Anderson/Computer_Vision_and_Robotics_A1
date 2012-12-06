@@ -12,3 +12,6 @@ for i=1:1:1080
         end
     end
 end
+
+% DEBUG
+% figure; imshow(image);

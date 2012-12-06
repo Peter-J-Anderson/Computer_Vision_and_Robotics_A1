@@ -24,16 +24,16 @@ myImage8 = imread('beltpotatoes_8.jpg');
 myImage9 = imread('beltpotatoes_9.jpg');
 myImage10 = imread('beltpotatoes_10.jpg');
 
-figure; imshow(myImage1);
-figure; imshow(myImage2);
-figure; imshow(myImage3);
-figure; imshow(myImage4);
-figure; imshow(myImage5);
-figure; imshow(myImage6);
-figure; imshow(myImage7);
-figure; imshow(myImage8);
-figure; imshow(myImage9);
-figure; imshow(myImage10);
+% figure; imshow(myImage1);
+% figure; imshow(myImage2);
+% figure; imshow(myImage3);
+% figure; imshow(myImage4);
+% figure; imshow(myImage5);
+% figure; imshow(myImage6);
+% figure; imshow(myImage7);
+% figure; imshow(myImage8);
+% figure; imshow(myImage9);
+% figure; imshow(myImage10);
 
 backgroundModel = learnBackground(backgroundImage1,backgroundModel);
 backgroundModel = learnBackground(backgroundImage2,backgroundModel);
